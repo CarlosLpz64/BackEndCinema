@@ -29,6 +29,7 @@ Route.post('logout', 'UsersController.logout');
 Route.post('signup', 'UsersController.signup');
 Route.post('verificarToken', 'UsersController.verificarToken');
 
+Route.post('ChecarToken', 'TipoUsuariosController')
 
 //USERS
 Route.group(() => {

@@ -11,6 +11,7 @@ export default class UsersController {
 
         try{
             const token = await auth.use('api').attempt(email, password)
+            //return token.id;
             return token; 
             
         }catch{
