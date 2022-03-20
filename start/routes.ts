@@ -29,7 +29,16 @@ Route.post('logout', 'UsersController.logout');
 Route.post('signup', 'UsersController.signup');
 Route.post('verificarToken', 'UsersController.verificarToken');
 
-Route.post('ChecarToken', 'TipoUsuariosController')
+//EL SIGUIENTE GRUPO SON LAS RUTAS QUE SON PARA CHECAR PERMISOS Y CHECAR EXISTENCIA ADEMAS DE PODER VER Y INSERTAR
+
+Route.group(()=>{
+  Route.get('checarpermiso/:id', 'TipoUsuariosController.VerificarPermiso')
+  Route.get('checarexistencia/:id', 'TipoUsuariosController.VerificarExistencia')
+  Route.post('store', 'TipoUsuariosController.InsertarTipo')
+  Route.get('vertipos', 'TipoUsuariosController.Index')
+}).prefix('api').middleware('auth')
+
+//----------------------------------------------------------------------------------------------------------------
 
 //USERS
 Route.group(() => {

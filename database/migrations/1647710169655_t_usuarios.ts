@@ -6,7 +6,7 @@ export default class TUsuarios extends BaseSchema {
   public async up () {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id').primary()
-      table.string('puesto', 30).notNullable().unique()
+      table.string('puesto', 30).notNullable()
       table.integer('user_id').unsigned().notNullable().references('id').inTable('users')
 
       /**
