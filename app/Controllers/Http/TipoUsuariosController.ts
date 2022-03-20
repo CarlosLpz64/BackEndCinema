@@ -24,10 +24,13 @@ export default class TipoUsuariosController {
     }
 
     public async VerificarPermiso({response, params}: HttpContextContract){
+
+                 /* EL 1 ES ADMINISTRADOR - EL O ES EMPLEADO GENERAL */
+
         try{
             const tusu = await TUsuario.findOrFail(params.id)
 
-            if(tusu.puesto == 'administrador' || tusu.puesto == 'ADMINISTRADOR' || tusu.puesto == 'Administrador'){
+            if(tusu.puesto == 1){
                 response.status(200).json({
                     message: "ES ADMINISTRADOR",
                     data: true
@@ -49,10 +52,7 @@ export default class TipoUsuariosController {
     public async InsertarTipo({request, response}: HttpContextContract){
         try{
             const tusuSchema = schema.create({
-                puesto: schema.string({trim: true}, [
-                    rules.required(),
-                    rules.maxLength(30)
-                ]),
+                puesto: schema.number([rules.required()]),
                 user_id: schema.number([rules.required()])
             })
     

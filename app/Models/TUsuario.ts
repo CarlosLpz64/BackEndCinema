@@ -7,7 +7,7 @@ export default class TUsuario extends BaseModel {
   public id: number
 
   @column()
-  public puesto: string
+  public puesto: number
 
   @column()
   public user_id: number
